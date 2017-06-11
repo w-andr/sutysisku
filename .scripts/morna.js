@@ -13,8 +13,7 @@ function addZero(i) {
 }
 //strip out template
 function gp(file_m,tag,prefix){
-	const r = new RegExp("^ *"+(prefix===0?'':"window\.") + tag +" *= *[\"']?(.*?)[\"']?;(\\\n|\\\r)","m");
-	const m = (r.test(file_m)||['','false'])[1].replace(/\\\"/g,"\"");
+	const m = (file_m.match(new RegExp("^ *"+(prefix===0?'':"window\.") + tag +" *= *[\"']?(.*?)[\"']?;(\\\n|\\\r)","m"))||['','false'])[1].replace(/\\\"/g,"\"");
 	if (tag.indexOf("title")>-1) console.log(tag,m);
 	if (m=='true') return true;
 	if (m=='false') return undefined;
