@@ -20,6 +20,7 @@ function gp(file_m,tag,prefix){
 	return m;
 }
 function gpr(file_m,tag,input,fallback,prefix){
+	if (tag.indexOf("title")>-1) console.log(file_m,tag,input,fallback,prefix);
 	const m = gp(file_m,tag,prefix)||(fallback?fallback:'');
 	return input.replace(new RegExp("%"+tag+"%","g"),m);
 }
