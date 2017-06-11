@@ -14,7 +14,7 @@ function addZero(i) {
 //strip out template
 function gp(file_m,tag,prefix){
 	const m = (file_m.match(new RegExp("^ *"+(prefix===0?'':"window\.") + tag +" *= *[\"']?(.*?)[\"']?;(\\\n|\\\r)",""))||['','false'])[1].replace(/\\\"/g,"\"");
-	if tag.indexOf("title") console.log(tag,m);
+	if (tag.indexOf("title")>-1) console.log(tag,m);
 	if (m=='true') return true;
 	if (m=='false') return undefined;
 	return m;
